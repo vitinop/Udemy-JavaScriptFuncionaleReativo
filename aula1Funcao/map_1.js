@@ -44,7 +44,7 @@ console.log(`Itens do Carrinhos : ${carrinho.map(getNomesCarrinho)}`)
 const getTotalCarrinho = item => item.quantidade * item.preco
 const totais = carrinho.map(getTotalCarrinho)
 
-console.log(`Itens do Carrinhos : ${totais}`)
+console.log(`Valor dos Itens do Carrinhos : ${totais}`)
 
 Array.prototype.meuMap = function (fn) {
     const novoArray = []
@@ -56,4 +56,3 @@ Array.prototype.meuMap = function (fn) {
     }
     return novoArray
 }
-
