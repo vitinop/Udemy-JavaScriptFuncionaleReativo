@@ -28,12 +28,24 @@ const carrinho = [{
 // a regra da estrutura do reduce, que é arrayexemplo.reduce(fn,vi) 
 // onde fn é a função construtora e vi é o valor inicial do acumulador dessa função
 const getTotalValor = (item) => item.qtde * item.preco
-const somarTotal= (acumulador,numero) =>{ 
-    console.log(acumulador,numero)
-    return acumulador+numero
-}
+const somarTotal= (acumulador,numero) => acumulador+numero
+
 
 const totalGeral = carrinho
 .map(getTotalValor)
 .reduce(somarTotal,0) //onde 0 é o valor inicial do acumulador
 console.log(totalGeral)
+
+Array.prototype.meuReduce = function(fn,inicial){
+    let acc =inicial
+    for(let i=0; i<this.length;i++){
+        if(!acc && i===00){
+            acc=this[i]
+        } 
+        else{
+        acc = fn(acc, this[i], i,this)
+        }
+    }
+    return acc
+}
+
